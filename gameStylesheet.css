@@ -1,3 +1,9 @@
 .error{
-    background-color: red;
+    color:  red;
+    font-weight: bold
+}
+
+.message{
+    color:  green;
+    font-weight: bold
 }
