@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-sanitize.js"></script>
+  <script src="//cdn.jsdelivr.net/lodash/4.7.0/lodash.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="gameStylesheet.css"> 
+  
+</head>
+
+<body ng-app="gameApp" >
+    <div ng-controller="quickMathController">
+        <h1>QUICK-MATH !</h1>
+        <div>
+            <h3>How fast and accurately can you sum up the random numbers appearing on screen?!</h3>
+            <input type="submit" ng-disabled="" button ng-click="startGame()" value="Press this button to start!"></button>
+            <br/>
+            <br/>
+            <div ng-hide="!gameStarted">
+                Add this: {{randomNumber}}
+                <br/>
+                Time remaining: {{counter}}
+                <br/>
+                <form>
+                    <input type="search" ng-model="userSum" ng-disabled="message"></input> 
+                    <input type="submit" value="Submit" ng-click="validateResult()" ng-disabled="message"/>
+                </form>
+                <br/>
+                Your Score: {{score}}
+                <br/>
+                <p class="error" ng-bind-html="wrongSum"></p>
+                <p class="message" ng-bind-html="message"></p>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+
+</html>
+
+<html><body><br/></body></html>
