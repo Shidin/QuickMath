@@ -15,7 +15,8 @@ var quickMathController=function($scope, $interval, $route, $window){
     
     //Start the game
     $scope.startGame=function(){
-        console.log("$scope.startGame");
+        $scope.userInputOpen=true;
+        console.log("$scope.userInputOpen");
         $scope.userSum=null;
         $scope.score=0;
         $scope.gameStarted=true;
@@ -25,7 +26,7 @@ var quickMathController=function($scope, $interval, $route, $window){
     };
     
     //Start the counter
-    var startCounter = function() {
+    var startCounter = function() { 
         console.log("startCounter");
         counterInterval = $interval(decrementTimer, 1000);
     };
@@ -83,7 +84,20 @@ var quickMathController=function($scope, $interval, $route, $window){
 
     $scope.gameStarted=false;
     var generatedNumbers=[];
+    $scope.userInputOpen = false
 };
+
+//Custom Directive to bring the focus onto the result box
+gameApp.directive('showFocus', function($timeout) {
+  return function(scope, element, attrs) {
+    scope.$watch(attrs.showFocus, 
+      function (newValue) { 
+        $timeout(function() {
+            newValue && element[0].focus();
+        });
+      },true);
+  };    
+});
 
 //Register the Controller
 gameApp.controller("quickMathController", quickMathController);
