@@ -16,8 +16,8 @@
     <div ng-controller="quickMathController">
         <h1>QUICK-MATH !</h1>
         <div>
-            <h3>How fast and accurately can you sum up the random numbers appearing on screen?!</h3>
-            <input type="submit" ng-disabled="gameStarted" button ng-click="startGame()" value="Press this button to start!"></button>
+            <h3><u>Game Objective</u><br/>Add up the number that is generated on the screen to the Previous Sum.<br/> In case of a new game, assume Previous Sum = 0.</h3>
+            <input type="submit" ng-disabled="gameStarted" button ng-click="startGame()" value="Press this button to start!" ></button>
             <br/>
             <br/>
             <div ng-hide="!gameStarted">
@@ -26,7 +26,7 @@
                 Time remaining: {{counter}}
                 <br/>
                 <form>
-                    <input type="search" ng-model="userSum" ng-disabled="message"></input> 
+                    <input type="number" min="1" ng-model="userSum" ng-disabled="message" show-focus="userInputOpen"></input> 
                     <input type="submit" value="Submit" ng-click="validateResult()" ng-disabled="message"/>
                 </form>
                 <p class="message">Your Score: {{score}}</p>
